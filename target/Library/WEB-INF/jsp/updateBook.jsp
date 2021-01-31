@@ -49,7 +49,7 @@
                             <input type="submit" class="button is-link" value="Update">
                         </div>
                         <div class="control">
-                            <a class="button is-link is-light" href="${ctx}/book/allBook">Cancel</a>
+                            <a class="button is-link is-light" href="${ctx}/book/showBook/1">Cancel</a>
                         </div>
                     </div>
                 </form>

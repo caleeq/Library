@@ -1,5 +1,8 @@
 package com.steven.pojo;
 
+import com.alibaba.fastjson.annotation.JSONType;
+
+@JSONType(orders = {"bookID","bookName","bookCounts","detail"})
 public class Books {
     public int getBookID() {
         return bookID;

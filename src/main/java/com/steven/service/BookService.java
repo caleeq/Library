@@ -16,9 +16,9 @@ public interface BookService {
 
     List<Books> queryAllBook();
 
-    List<Books> queryBookByName(String booKName);
+    List<Books> queryBookByName(String booKName, int pageSize);
 
     List<Books> queryBookByPage(int pageNow, int pageSize);
 
-    int totalBook();
+    int totalBook(String bookName);
 }

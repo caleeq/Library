@@ -17,9 +17,9 @@ public interface BookMapper {
 
     List<Books> queryAllBook();
 
-    List<Books> queryBookByName(@Param("bookName") String bookName);
+    List<Books> queryBookByName(@Param("bookName") String bookName, @Param("pageSize") int pageSize);
 
     List<Books> queryBookByPage(@Param("pageNow") int pageNow, @Param("pageSize") int pageSize);
 
-    int totalBook();
+    int totalBook(@Param("bookName") String bookName);
 }

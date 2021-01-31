@@ -38,7 +38,7 @@
         select *
         from ssmbuild.books
         where bookName like concat('%', #{bookName}, '%')
-        limit 5
+        limit #{pageSize}
     </select>
 
     <select id="queryBookByPage" resultType="Books">
@@ -49,7 +49,8 @@
 
     <select id="totalBook" resultType="int">
         select count(*)
-        from ssmbuild.books;
+        from ssmbuild.books
+        where bookName like concat('%', #{bookName}, '%')
     </select>
 
 </mapper>

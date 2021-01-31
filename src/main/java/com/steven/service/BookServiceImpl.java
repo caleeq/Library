@@ -34,16 +34,16 @@ public class BookServiceImpl implements BookService {
         return bookMapper.queryAllBook();
     }
 
-    public List<Books> queryBookByName(String bookName) {
-        return bookMapper.queryBookByName(bookName);
+    public List<Books> queryBookByName(String bookName, int pageSize) {
+        return bookMapper.queryBookByName(bookName, pageSize);
     }
 
     public List<Books> queryBookByPage(int pageNow, int pageSize) {
         return bookMapper.queryBookByPage(pageNow, pageSize);
     }
 
-    public int totalBook(){
-        return bookMapper.totalBook();
+    public int totalBook(String bookName) {
+        return bookMapper.totalBook(bookName);
     }
 
 }

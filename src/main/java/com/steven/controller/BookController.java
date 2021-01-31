@@ -1,5 +1,6 @@
 package com.steven.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.steven.pojo.Books;
 import com.steven.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -17,6 +19,7 @@ public class BookController {
     @Autowired
     @Qualifier("bookServiceImpl")
     private BookService bookService;
+    private final int pageSize = 10;
 
     @RequestMapping("/allBook")
     public String list(Model model) {
@@ -27,8 +30,7 @@ public class BookController {
 
     @RequestMapping("/showBook/{pageNow}")
     public String record(@PathVariable("pageNow") int pageNow, Model model) {
-        int pageSize = 5;
-        int totalRecord = bookService.totalBook();
+        int totalRecord = bookService.totalBook("");
         int pageCount = (totalRecord + pageSize - 1) / pageSize;
         List<Books> list = bookService.queryBookByPage(pageNow, pageSize);
         model.addAttribute("list", list);
@@ -70,11 +72,9 @@ public class BookController {
     @RequestMapping("/queryBook")
     public String queryBook(String queryBookName, Model model) {
         int pageNow = 1;
-        int pageSize = 5;
-        int totalRecord = bookService.totalBook();
+        int totalRecord = bookService.totalBook(queryBookName);
         int pageCount = (totalRecord + pageSize - 1) / pageSize;
-        List<Books> list = bookService.queryBookByName(queryBookName);
-//      List<Books> list = bookService.queryBookByPage(pageNow, pageSize);
+        List<Books> list = bookService.queryBookByName(queryBookName, pageSize);
         if (list.size() == 0) {
             model.addAttribute("error", "No Result");
         }
@@ -82,6 +82,14 @@ public class BookController {
         model.addAttribute("pageNow", pageNow);
         model.addAttribute("list", list);
         return "allBook";
-//      return "forward:/book/showBook/1";
     }
+
+//  @RequestMapping(value = "/findBook", produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    @RequestMapping("/findBook")
+    public String findBook(String queryBookName) {
+        List<Books> list = bookService.queryBookByName(queryBookName, pageSize);
+        return JSON.toJSONString(list);
+    }
+
 }

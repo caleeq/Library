@@ -12,6 +12,10 @@
 <head>
     <title>All Book</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <script src="http://ajax.microsoft.com/ajax/jquery/jquery-3.5.1.min.js"></script>
+    <script>const ctx = "${pageContext.request.contextPath}";</script>
+    <script src="/js/script.js"></script>
 </head>
 <body>
 <section class="section">
@@ -20,7 +24,7 @@
             <div class="level-left">
                 <div class="content">
                     <h1 class="title">Welcome</h1>
-                    <p class="subtitle">Please enjoy this helpful script.</p>
+                    <p class="subtitle">Please enjoy these helpful books.</p>
                 </div>
             </div>
         </div>
@@ -32,7 +36,7 @@
                 <form action="${pageContext.request.contextPath}/book/queryBook" method="post" class="field">
                     <div class="field has-addons">
                         <div class="control">
-                            <input type="text" class="input" name="queryBookName" placeholder="book name">
+                            <input id="test" oninput="ajax()" type="text" class="input" name="queryBookName" placeholder="book name">
                         </div>
                         <div class="control">
                             <button class="button is-link" type="submit">Search</button>
@@ -63,8 +67,8 @@
                                 <td>${book.detail}</td>
                                 <td>
                                     <div class="tags has-addons">
-                                        <a class="tag is-info is-light" href="${ctx}/book/toUpdate/${book.bookID}">update</a>
-                                        <a class="tag is-delete"
+                                        <a class="tag is-info is-light" title="update" href="${ctx}/book/toUpdate/${book.bookID}"><i class="ion-edit"></i></a>
+                                        <a class="tag is-delete" title="delete"
                                            href="javascript:if(confirm('Confirm to delete ?'))location='${ctx}/book/deleteBook/${book.bookID}'"></a>
                                     </div>
                                 </td>
@@ -83,15 +87,15 @@
             </div>
         </div>
 
-        <c:if test="${error!='No Result'}">
+        <c:if test="${error!='No Result' && pageCount>1}">
             <div class="level">
                 <div class="level-item">
-                    <nav class="pagination is-centered" role="navigation">
+                    <nav class="pagination is-centered is-small" role="navigation">
                         <c:if test="${pageNow!=1}">
-                            <a class="pagination-previous" href="/book/showBook/${pageNow-1}">Previous</a>
+                            <a class="pagination-previous" title="Previous page" href="/book/showBook/${pageNow-1}">&lt;</a>
                         </c:if>
                         <c:if test="${pageNow!=pageCount}">
-                            <a class="pagination-next" href="/book/showBook/${pageNow+1}">Next page</a>
+                            <a class="pagination-next" title="Next page" href="/book/showBook/${pageNow+1}">&gt;</a>
                         </c:if>
                         <ul class="pagination-list">
                             <li><a class="pagination-link" href="/book/showBook/1">1</a></li>
@@ -99,7 +103,7 @@
                             <c:if test="${pageNow!=1}">
                                 <li><a class="pagination-link" href="/book/showBook/${pageNow-1}">${pageNow-1}</a></li>
                             </c:if>
-                            <li><a class="pagination-link is-current">${pageNow}</a></li>
+                            <li><a class="pagination-link is-current" style="cursor:default">${pageNow}</a></li>
                             <c:if test="${pageNow!=pageCount}">
                                 <li><a class="pagination-link" href="/book/showBook/${pageNow+1}">${pageNow+1}</a></li>
                             </c:if>
@@ -110,6 +114,21 @@
                 </div>
             </div>
         </c:if>
+        <section class="section">
+            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Counts</th>
+                    <th>Detail</th>
+                </tr>
+                </thead>
+                <tbody id="list">
+
+                </tbody>
+            </table>
+        </section>
     </div>
 </section>
 </body>
