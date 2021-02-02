@@ -1,41 +1,27 @@
 package com.steven.pojo;
 
 public class Users {
+
     private int userID;
     private String userName;
     private String passWord;
     private String email;
     private String sex;
-    private String admin;
-    private String history;
+    private String phone;
+    private int admin;
 
-    public Users(){
+    public Users() {
 
     }
 
-    public Users(int userID, String userName, String passWord, String email, String sex, String admin, String history) {
+    public Users(int userID, String userName, String passWord, String email, String sex, String phone, int admin) {
         this.userID = userID;
         this.userName = userName;
         this.passWord = passWord;
         this.email = email;
         this.sex = sex;
+        this.phone = phone;
         this.admin = admin;
-        this.history = history;
-    }
-
-
-
-    @Override
-    public String toString() {
-        return "Users{" +
-                "userID=" + userID +
-                ", userName='" + userName + '\'' +
-                ", passWord='" + passWord + '\'' +
-                ", email='" + email + '\'' +
-                ", sex='" + sex + '\'' +
-                ", admin='" + admin + '\'' +
-                ", history='" + history + '\'' +
-                '}';
     }
 
     public int getUserID() {
@@ -78,19 +64,32 @@ public class Users {
         this.sex = sex;
     }
 
-    public String getAdmin() {
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public int getAdmin() {
         return admin;
     }
 
-    public void setAdmin(String admin) {
+    public void setAdmin(int admin) {
         this.admin = admin;
     }
 
-    public String getHistory() {
-        return history;
-    }
-
-    public void setHistory(String history) {
-        this.history = history;
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userID=" + userID +
+                ", userName='" + userName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", email='" + email + '\'' +
+                ", sex='" + sex + '\'' +
+                ", phone='" + phone + '\'' +
+                ", admin=" + admin +
+                '}';
     }
 }

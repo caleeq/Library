@@ -33,10 +33,11 @@
                 <a class="button is-success" href="${ctx}/book/toAddBook">Add Book</a>
             </div>
             <div class="level-right">
-                <form action="${pageContext.request.contextPath}/book/queryBook" method="post" class="field">
+                <form action="${ctx}/book/queryBook" method="post" class="field">
                     <div class="field has-addons">
                         <div class="control">
-                            <input id="test" oninput="ajax()" type="text" class="input" name="queryBookName" placeholder="book name">
+                            <input id="test" oninput="ajax()" type="text" class="input" name="queryBookName"
+                                   placeholder="book name">
                         </div>
                         <div class="control">
                             <button class="button is-link" type="submit">Search</button>
@@ -67,7 +68,8 @@
                                 <td>${book.detail}</td>
                                 <td>
                                     <div class="tags has-addons">
-                                        <a class="tag is-info is-light" title="update" href="${ctx}/book/toUpdate/${book.bookID}"><i class="ion-edit"></i></a>
+                                        <a class="tag is-info is-light" title="update"
+                                           href="${ctx}/book/toUpdate/${book.bookID}"><i class="ion-edit"></i></a>
                                         <a class="tag is-delete" title="delete"
                                            href="javascript:if(confirm('Confirm to delete ?'))location='${ctx}/book/deleteBook/${book.bookID}'"></a>
                                     </div>
@@ -92,23 +94,28 @@
                 <div class="level-item">
                     <nav class="pagination is-centered is-small" role="navigation">
                         <c:if test="${pageNow!=1}">
-                            <a class="pagination-previous" title="Previous page" href="/book/showBook/${pageNow-1}">&lt;</a>
+                            <a class="pagination-previous" title="Previous page"
+                               href="${ctx}/book/showBook/${pageNow-1}">&lt;</a>
                         </c:if>
                         <c:if test="${pageNow!=pageCount}">
-                            <a class="pagination-next" title="Next page" href="/book/showBook/${pageNow+1}">&gt;</a>
+                            <a class="pagination-next" title="Next page"
+                               href="${ctx}/book/showBook/${pageNow+1}">&gt;</a>
                         </c:if>
                         <ul class="pagination-list">
-                            <li><a class="pagination-link" href="/book/showBook/1">1</a></li>
+                            <li><a class="pagination-link" href="${ctx}/book/showBook/1">1</a></li>
                             <li><span class="pagination-ellipsis">&hellip;</span></li>
                             <c:if test="${pageNow!=1}">
-                                <li><a class="pagination-link" href="/book/showBook/${pageNow-1}">${pageNow-1}</a></li>
+                                <li><a class="pagination-link" href="${ctx}/book/showBook/${pageNow-1}">${pageNow-1}</a>
+                                </li>
                             </c:if>
                             <li><a class="pagination-link is-current" style="cursor:default">${pageNow}</a></li>
                             <c:if test="${pageNow!=pageCount}">
-                                <li><a class="pagination-link" href="/book/showBook/${pageNow+1}">${pageNow+1}</a></li>
+                                <li><a class="pagination-link" href="${ctx}/book/showBook/${pageNow+1}">${pageNow+1}</a>
+                                </li>
                             </c:if>
                             <li><span class="pagination-ellipsis">&hellip;</span></li>
-                            <li><a class="pagination-link" href="/book/showBook/${pageCount}">${pageCount}</a></li>
+                            <li><a class="pagination-link" href="${ctx}/book/showBook/${pageCount}">${pageCount}</a>
+                            </li>
                         </ul>
                     </nav>
                 </div>

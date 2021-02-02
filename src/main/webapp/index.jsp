@@ -15,7 +15,7 @@
                     Books</a>
             </div>
             <div class="column">
-                <a class="button is-warning" href="${pageContext.request.contextPath}/user/login">Login</a>
+                <a class="button is-warning" href="${pageContext.request.contextPath}/user/tologin">Login</a>
             </div>
             <div class="column">
                 <a class="button is-danger" href="#">to be add</a>

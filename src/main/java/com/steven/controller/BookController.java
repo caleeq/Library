@@ -40,7 +40,7 @@ public class BookController {
     }
 
     @RequestMapping("/toAddBook")
-    public String toAddPaper() {
+    public String toAddBook() {
         return "addBook";
     }
 
@@ -51,7 +51,7 @@ public class BookController {
     }
 
     @RequestMapping("/toUpdate/{bookID}")
-    public String toUpdatePaper(@PathVariable("bookID") int id, Model model) {
+    public String toUpdateBook(@PathVariable("bookID") int id, Model model) {
         Books books = bookService.queryBookById(id);
         model.addAttribute("Qbooks", books);
         return "updateBook";
@@ -84,7 +84,7 @@ public class BookController {
         return "allBook";
     }
 
-//  @RequestMapping(value = "/findBook", produces = "text/html;charset=UTF-8")
+    //  @RequestMapping(value = "/findBook", produces = "text/html;charset=UTF-8")
     @ResponseBody
     @RequestMapping("/findBook")
     public String findBook(String queryBookName) {

@@ -14,5 +14,7 @@
 
     <mappers>
         <mapper class="com.steven.dao.BookMapper"/>
+        <mapper class="com.steven.dao.UserMapper"/>
     </mappers>
+
 </configuration>
