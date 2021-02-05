@@ -15,15 +15,15 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script src="http://ajax.microsoft.com/ajax/jquery/jquery-3.5.1.min.js"></script>
     <script>const ctx = "${pageContext.request.contextPath}";</script>
-    <script src="/js/script.js"></script>
+    <script src="/js/ajax.js"></script>
 </head>
-<body>
+<body style="background: #f4f4f2">
 <section class="section">
     <div class="container">
         <div class="level">
             <div class="level-left">
                 <div class="content">
-                    <h1 class="title">Welcome</h1>
+                    <h1 class="title">Welcome<i>&nbsp;${username}</i></h1>
                     <p class="subtitle">Please enjoy these helpful books.</p>
                 </div>
             </div>
@@ -55,7 +55,7 @@
                             <th>#</th>
                             <th>Name</th>
                             <th>Counts</th>
-                            <th>Detail</th>
+                            <th>Description</th>
                             <th>Edit</th>
                         </tr>
                         </thead>
@@ -65,7 +65,7 @@
                                 <td>${book.bookID}</td>
                                 <td>${book.bookName}</td>
                                 <td>${book.bookCounts}</td>
-                                <td>${book.detail}</td>
+                                <td>${book.bookDesc}</td>
                                 <td>
                                     <div class="tags has-addons">
                                         <a class="tag is-info is-light" title="update"
@@ -128,7 +128,7 @@
                     <th>#</th>
                     <th>Name</th>
                     <th>Counts</th>
-                    <th>Detail</th>
+                    <th>Description</th>
                 </tr>
                 </thead>
                 <tbody id="list">

@@ -9,4 +9,9 @@
         where userName = #{username}
           and passWord = #{password}
     </select>
+
+    <insert id="addUser" parameterType="Users">
+        insert into ssmbuild.users (userName, passWord, gender, email, phone, admin)
+            value (#{userName}, #{passWord}, #{gender}, #{email}, #{phone}, #{admin})
+    </insert>
 </mapper>

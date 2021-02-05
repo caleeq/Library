@@ -78,6 +78,7 @@ i {
     display: inline-block;
     padding: 1px;
 }
+
 .leftArrow {
     transform: rotate(-135deg);
 }

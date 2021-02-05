@@ -2,7 +2,7 @@ package com.steven.pojo;
 
 import com.alibaba.fastjson.annotation.JSONType;
 
-@JSONType(orders = {"bookID","bookName","bookCounts","detail"})
+@JSONType(orders = {"bookID","bookName","bookCounts","bookDesc"})
 public class Books {
     public int getBookID() {
         return bookID;
@@ -28,19 +28,19 @@ public class Books {
         this.bookCounts = bookCounts;
     }
 
-    public String getDetail() {
-        return detail;
+    public String getBookDesc() {
+        return bookDesc;
     }
 
-    public void setDetail(String detail) {
-        this.detail = detail;
+    public void setBookDesc(String bookDesc) {
+        this.bookDesc = bookDesc;
     }
 
-    public Books(int bookID, String bookName, int bookCounts, String detail) {
+    public Books(int bookID, String bookName, int bookCounts, String bookDesc) {
         this.bookID = bookID;
         this.bookName = bookName;
         this.bookCounts = bookCounts;
-        this.detail = detail;
+        this.bookDesc = bookDesc;
     }
 
     public Books(){
@@ -53,12 +53,12 @@ public class Books {
                 "bookID=" + bookID +
                 ", bookName='" + bookName + '\'' +
                 ", bookCounts=" + bookCounts +
-                ", detail='" + detail + '\'' +
+                ", bookDesc='" + bookDesc + '\'' +
                 '}';
     }
 
     private int bookID;
     private String bookName;
     private int bookCounts;
-    private String detail;
+    private String bookDesc;
 }

@@ -5,4 +5,6 @@ import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     Users checkUser(@Param("username") String username, @Param("password") String password);
+
+    int addUser(Users users);
 }

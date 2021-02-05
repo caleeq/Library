@@ -6,7 +6,7 @@ public class Users {
     private String userName;
     private String passWord;
     private String email;
-    private String sex;
+    private String gender;
     private String phone;
     private int admin;
 
@@ -14,12 +14,12 @@ public class Users {
 
     }
 
-    public Users(int userID, String userName, String passWord, String email, String sex, String phone, int admin) {
+    public Users(int userID, String userName, String passWord, String email, String gender, String phone, int admin) {
         this.userID = userID;
         this.userName = userName;
         this.passWord = passWord;
         this.email = email;
-        this.sex = sex;
+        this.gender = gender;
         this.phone = phone;
         this.admin = admin;
     }
@@ -56,12 +56,12 @@ public class Users {
         this.email = email;
     }
 
-    public String getSex() {
-        return sex;
+    public String getGender() {
+        return gender;
     }
 
-    public void setSex(String sex) {
-        this.sex = sex;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getPhone() {
@@ -87,7 +87,7 @@ public class Users {
                 ", userName='" + userName + '\'' +
                 ", passWord='" + passWord + '\'' +
                 ", email='" + email + '\'' +
-                ", sex='" + sex + '\'' +
+                ", gender='" + gender + '\'' +
                 ", phone='" + phone + '\'' +
                 ", admin=" + admin +
                 '}';

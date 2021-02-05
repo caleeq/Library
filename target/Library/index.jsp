@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <script src="http://ajax.microsoft.com/ajax/jquery/jquery-3.5.1.min.js"></script>
 <script>const ctx = "${pageContext.request.contextPath}";</script>
-<script src="/js/script.js"></script>
-<body>
+<script src="/js/ajax.js"></script>
+<body style="background: #f4f4f2">
 <section class="section">
     <div class="container">
         <h1 class="title">Hello World!</h1>
@@ -15,7 +15,7 @@
                     Books</a>
             </div>
             <div class="column">
-                <a class="button is-warning" href="${pageContext.request.contextPath}/user/tologin">Login</a>
+                <a class="button is-warning" href="${pageContext.request.contextPath}/user/toLogin">Login</a>
             </div>
             <div class="column">
                 <a class="button is-danger" href="#">to be add</a>

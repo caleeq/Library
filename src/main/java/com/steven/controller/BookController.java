@@ -84,7 +84,6 @@ public class BookController {
         return "allBook";
     }
 
-    //  @RequestMapping(value = "/findBook", produces = "text/html;charset=UTF-8")
     @ResponseBody
     @RequestMapping("/findBook")
     public String findBook(String queryBookName) {
