@@ -5,8 +5,8 @@
 <mapper namespace="com.steven.dao.BookMapper">
 
     <insert id="addBook" parameterType="Books">
-        insert into ssmbuild.books(bookName, bookCounts, detail)
-            value (#{bookName}, #{bookCounts}, #{detail})
+        insert into ssmbuild.books(bookName, bookCounts, bookDesc)
+            value (#{bookName}, #{bookCounts}, #{bookDesc})
     </insert>
 
     <delete id="deleteBookById" parameterType="int">
@@ -19,7 +19,7 @@
         update ssmbuild.books
         set bookname   = #{bookName},
             bookCounts = #{bookCounts},
-            detail     = #{detail}
+            bookDesc     = #{bookDesc}
         where bookID = #{bookID}
     </update>
 

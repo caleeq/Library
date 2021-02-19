@@ -13,7 +13,7 @@
 <title>Add Book</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
 </head>
-<body>
+<body style="background: #f4f4f2">
 <section class="section">
     <div class="level">
         <div class="level-item">
@@ -39,9 +39,9 @@
                         </div>
                     </div>
                     <div class="content">
-                        <label for="bkdetail" class="label">Book Detail:</label>
+                        <label for="bkdesc" class="label">Book Description:</label>
                         <div class="control">
-                            <input type="text" name="detail" class="input" id="bkdetail" required/>
+                            <input type="text" name="bookDesc" class="input" id="bkdesc" required/>
                         </div>
                     </div>
                     <div class="field is-grouped">
